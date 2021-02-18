@@ -10,12 +10,13 @@ public class PriorityQueue<T> extends ArrayHeap<T> {
 	
 	public void addElement(T object) {
 		this.add(object);
-		front++;
 	}
 	
-//	public <T> removeNext(){
-//		
-//	}
+
+	
+	public T removeNext() throws Exception{
+		return this.removeMin();
+	}
 	
 
 }

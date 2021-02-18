@@ -1,15 +1,20 @@
 
-public class HuffmanTreeNode<T> {
+public class HuffmanTreeNode <T> {
 
-	public T myChar;
-	public int myFrequency;
-	public  HuffmanTreeNode<T> myLeft, myRight;
+	private char myChar;
+	private int myFrequency;
+	private  HuffmanTreeNode<T> myLeft, myRight;
 	
 	public HuffmanTreeNode() {}
 	
-	public HuffmanTreeNode(final T character, final int frequency) {
+	public HuffmanTreeNode(final char character, final int frequency) {
 		this.myChar = character;
 		this.myFrequency = frequency;
+	}
+	
+	public HuffmanTreeNode(final int freequency) {
+		this.myFrequency = freequency;
+		this.myChar = ' ';
 	}
 	
 	public HuffmanTreeNode<T> getLeft() {
@@ -30,6 +35,18 @@ public class HuffmanTreeNode<T> {
 	
 	public int compareTo(final  HuffmanTreeNode<T> node) {
 		return this.myFrequency < node.myFrequency ? 1 : -1;
+	}
+	
+	public int getFrequency() {
+		return this.myFrequency;
+	}
+	
+	public int getChar() {
+		return this.myChar;
+	}
+	@Override
+	public String toString() {
+		return this.myChar + " : " + this.myFrequency;
 	}
 }
 

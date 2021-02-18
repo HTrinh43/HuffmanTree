@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 public class HuffmanFrequencyTable {
 
-	public static void frequencyTable(final String input) {
+	public static HashMap<Character,Integer> frequencyTable(final String input) {
 		HashMap<Character,Integer> table = new HashMap<Character,Integer>();
 		for (int i = 0; i < input.length(); i++) {
 			//if the char is already in the table, incrementing the value
@@ -14,12 +14,16 @@ public class HuffmanFrequencyTable {
 				table.put(input.charAt(i), 1);
 			}
 		}
-		for (char c : table.keySet()) {
-			System.out.print(c);
-			System.out.print(" ");
-			System.out.print(table.get(c));
-			System.out.println();
-		}
+//		System.out.println("% java Tester " + input);
+//		System.out.println("===============================");
+//		System.out.println("char \t frequency");
+//		for (char c : table.keySet()) {
+//			System.out.print(c);
+//			System.out.print("\t");
+//			System.out.print(table.get(c));
+//			System.out.println();
+//		}
+		return table;
 	}
 	
 	
