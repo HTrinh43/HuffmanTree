@@ -63,7 +63,7 @@ public class ArrayHeap <T>{
 	public void heapifyAdd() {
 		HuffmanTreeNode<T> lastNode = this.myArr[count];
 		//add new node to the end of the array
-		int lastNodeIndex = count;
+		int lastNodeIndex = count; 
 		int parentIndex = (count - 1)/2;
 		//start a loop
 		//compare it to its parent
@@ -89,7 +89,7 @@ public class ArrayHeap <T>{
 			 (this.myArr[curr].compareTo(this.myArr[left]) == -1 ||
 			  this.myArr[curr].compareTo(this.myArr[right]) == -1 )) {
 			
-			if (this.myArr[left].compareTo(this.myArr[right]) == 1) {
+			if (this.myArr[left].compareTo(this.myArr[right]) == -1) {
 				swap(curr, right);
 				curr = right;
 			}

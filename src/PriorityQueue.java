@@ -12,8 +12,6 @@ public class PriorityQueue<T> extends ArrayHeap<T> {
 		this.add(object);
 	}
 	
-
-	
 	public T removeNext() throws Exception{
 		return this.removeMin();
 	}

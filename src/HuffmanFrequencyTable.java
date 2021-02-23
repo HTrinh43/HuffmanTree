@@ -14,15 +14,7 @@ public class HuffmanFrequencyTable {
 				table.put(input.charAt(i), 1);
 			}
 		}
-//		System.out.println("% java Tester " + input);
-//		System.out.println("===============================");
-//		System.out.println("char \t frequency");
-//		for (char c : table.keySet()) {
-//			System.out.print(c);
-//			System.out.print("\t");
-//			System.out.print(table.get(c));
-//			System.out.println();
-//		}
+
 		return table;
 	}
 	
