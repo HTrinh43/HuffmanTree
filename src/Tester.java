@@ -17,8 +17,8 @@ public class Tester<T> {
 	@BeforeEach
 	public void setUp() throws Exception {
 		myString = "Eerie eyes seen near lake.";
-//		this.tree = new HuffmanTree(myString);
 //		myString = "eeyjjjj";
+//		myString= "";
 	}
 
 	
@@ -44,6 +44,7 @@ public class Tester<T> {
 				current = root;
 			}
 		}
+
 		return result.toString();
 	}
 	
@@ -80,11 +81,12 @@ public class Tester<T> {
 		 * @param list: name of the file that will be written
 		 
 		 */
-		HuffmanTree<T> tree = new HuffmanTree(str);
+		HuffmanTree<T> tree = new HuffmanTree<T>(str);
+		HuffmanTreeNode<T> root = tree.getRoot();
 		HashMap<Character,Integer> frequencyTable = HuffmanFrequencyTable.frequencyTable(str);
 		HashMap<Character, String> encodingMap = new HashMap<Character, String>();
-		String HuffmanCode = this.encoding(str, tree.getRoot(), encodingMap);
-		String decodingCode = this.decoding(tree.getRoot(), str);
+		String HuffmanCode = this.encoding(str, root, encodingMap);
+		String decodingCode = this.decoding(root, HuffmanCode);
 		double ratio = (double)HuffmanCode.length()/((double)str.length()*8) * 100;
 		
 		System.out.println("% java Tester " + str);
@@ -106,7 +108,7 @@ public class Tester<T> {
 		System.out.println("Total number of bits with Huffman coding: " + HuffmanCode.length());
 		
 		System.out.println("Compression Ratio: " + Math.round(ratio) + "%");
-		System.out.println("Decoded String: " + str);
+		System.out.println("Decoded String: " + decodingCode);
 		
 //		final String filepath = System.getProperty("user.dir") +"/output/table" + ".txt";
 //		try {
