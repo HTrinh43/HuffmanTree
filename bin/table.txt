@@ -1,0 +1,92 @@
+% java Tester Eerie eyes seen near lake.
+===============================
+char 	 frequency 	 code
+ 		011
+a		010
+r		1110
+s		000
+E		11000
+e		10
+i		11001
+y		11011
+k		0011
+l		0010
+n		1111
+.		11010
+===============================
+Encoded bit stream:
+110001011101100110011101101110000011000101011110111111100101110011001001000111011010
+
+Total number of bits without Huffman coding (8-bits per character): 208
+Total number of bits with Huffman coding: 84
+Compression Ratio: 40%
+Decoded String: Eerie eyes seen near lake.
+% java Tester Eerie eyes seen near lake.
+===============================
+char 	 frequency 	 code
+ 		011
+a		010
+r		1110
+s		000
+E		11000
+e		10
+i		11001
+y		11011
+k		0011
+l		0010
+n		1111
+.		11010
+===============================
+Encoded bit stream:
+110001011101100110011101101110000011000101011110111111100101110011001001000111011010
+
+Total number of bits without Huffman coding (8-bits per character): 208
+Total number of bits with Huffman coding: 84
+Compression Ratio: 248%
+Decoded String: Eerie eyes seen near lake.
+% java Tester Eerie eyes seen near lake.
+===============================
+char 	 frequency 	 code
+ 		011
+a		010
+r		1110
+s		000
+E		11000
+e		10
+i		11001
+y		11011
+k		0011
+l		0010
+n		1111
+.		11010
+===============================
+Encoded bit stream:
+110001011101100110011101101110000011000101011110111111100101110011001001000111011010
+
+Total number of bits without Huffman coding (8-bits per character): 208
+Total number of bits with Huffman coding: 84
+Compression Ratio: 40%
+Decoded String: Eerie eyes seen near lake.
+% java Tester Eerie eyes seen near lake.
+===============================
+char 	 frequency 	 code
+ 		011
+a		010
+r		1110
+s		000
+E		11000
+e		10
+i		11001
+y		11011
+k		0011
+l		0010
+n		1111
+.		11010
+===============================
+Encoded bit stream:
+110001011101100110011101101110000011000101011110111111100101110011001001000111011010
+
+Total number of bits without Huffman coding (8-bits per character): 208
+Total number of bits with Huffman coding: 84
+Compression Ratio: 40%
+Decoded String: Eerie eyes seen near lake.

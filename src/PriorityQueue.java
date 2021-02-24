@@ -1,12 +1,18 @@
 
 public class PriorityQueue<T> extends ArrayHeap<T> {
-
+/**
+ * Priority queue class extends from ArrayHeap class
+ */
 	public PriorityQueue() {
 		super();
 	}
 	
-	public void addElement(T object) {
-		this.add(object);
+	public void addElement(HuffmanTreeNode<T> newNode) {
+		/**
+		 * add element to Priority Queue
+		 * pram newNode: new node
+		 */
+		this.add(newNode);
 	}
 	
 	public T removeNext() throws Exception{

@@ -1,5 +1,6 @@
+import java.util.Comparator;
 
-public class HuffmanTreeNode <T> {
+public class HuffmanTreeNode <T> implements Comparator<HuffmanTreeNode<T>>  {
 
 	private char myChar;
 	private int myFrequency;
@@ -35,9 +36,7 @@ public class HuffmanTreeNode <T> {
 		this.myRight = right;
 	}
 	
-	public int compareTo(final  HuffmanTreeNode<T> node) {
-		return this.myFrequency < node.myFrequency ? 1 : -1;
-	}
+
 	
 	public int getFrequency() {
 		return this.myFrequency;
@@ -48,12 +47,22 @@ public class HuffmanTreeNode <T> {
 	}
 	@Override
 	public String toString() {
-		String str = !this.isSum() && this.myChar == ' ' ? "sp" : this.myChar + "";
+		final String str = !this.isSum() && this.myChar == ' ' ? "sp" : String.valueOf(this.myChar);
 		return str + " : " + this.myFrequency;
 	}
 	
 	public boolean isSum() {
 		return this.sum;
+	}
+	
+	public int compareTo(final  HuffmanTreeNode<T> node) {
+		return this.compare(this, node);
+	}
+
+	@Override
+	public int compare(HuffmanTreeNode<T> o1, HuffmanTreeNode<T> o2) {
+		int result = o1.myFrequency < o2.myFrequency ? 1 : -1;
+		return result;
 	}
 }
 

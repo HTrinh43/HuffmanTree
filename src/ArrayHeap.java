@@ -32,11 +32,10 @@ public class ArrayHeap <T>{
 		return count;
 	}
 	
-	@SuppressWarnings("unchecked")
-	public void add(T object) {
+	public void add(HuffmanTreeNode<T> newNode) {
 		if (count == this.myArr.length)
 			this.expandSize();
-		this.myArr[count] = (HuffmanTreeNode<T>) object;
+		this.myArr[count] = (HuffmanTreeNode<T>) newNode;
 		this.heapifyAdd();
 		count++;
 	}
@@ -97,8 +96,8 @@ public class ArrayHeap <T>{
 				swap(curr, left);
 				curr = left;
 			}
-			left = curr * 2 + 1; // < count ? curr * 2 + 1 : 0;
-			right = curr * 2 + 2; // < count ? curr * 2 + 2 : 0;
+			left = curr * 2 + 1; 
+			right = curr * 2 + 2; 
 		}
 	}
 	
@@ -108,7 +107,7 @@ public class ArrayHeap <T>{
 	}
 	
 	private void swap(final int index1, final int index2) {
-		HuffmanTreeNode<T> temp = (HuffmanTreeNode<T>) this.myArr[index1];
+		final HuffmanTreeNode<T> temp = (HuffmanTreeNode<T>) this.myArr[index1];
 		this.myArr[index1] = this.myArr[index2];
 		this.myArr[index2] = temp;
 	}

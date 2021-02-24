@@ -1,51 +1,50 @@
 import java.util.HashMap;
 
-public class HuffmanTree<T> {
-	public PriorityQueue<HuffmanTreeNode> myQueue;
+public class HuffmanTree<T>  {
+	public PriorityQueue<HuffmanTreeNode<T>> myQueue;
 	private HuffmanTreeNode<T> root;
 	private HashMap<Character, String> encodingMap = new HashMap<Character, String>();
-//	private String HuffmanCode;
-	
-	
 	
 	public HuffmanTree(final String input) throws Exception {
-//		this.HuffmanCode = "";
-		this.myQueue = new PriorityQueue<HuffmanTreeNode>();
+
+		this.myQueue = new PriorityQueue<HuffmanTreeNode<T>>();
 		this.buildAQueue(input);
 		this.root = this.buildHuffmanTree();
-//		this.createEncodingMap();
-//		this.createHuffmanCode(input);
+
 	}
 	
 	private <T> void buildAQueue(final String input) {
 		HashMap<Character,Integer> result = HuffmanFrequencyTable.frequencyTable(input);
 		for (char c: result.keySet()) {
-			HuffmanTreeNode<T> newNode = new HuffmanTreeNode<T>(c,result.get(c));
+			HuffmanTreeNode newNode = new HuffmanTreeNode<T>(c,result.get(c));
 			this.myQueue.addElement(newNode);
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	private <T> void buildATree() throws Exception {
-		HuffmanTreeNode<T> node1 = this.myQueue.removeNext();
-		HuffmanTreeNode<T> node2 = this.myQueue.removeNext();
-		HuffmanTreeNode<T> newNode = new HuffmanTreeNode<T>(node1.getFrequency() + node2.getFrequency());
+		HuffmanTreeNode<T> node1 = (HuffmanTreeNode<T>) this.myQueue.removeNext();
+		HuffmanTreeNode<T> node2 = (HuffmanTreeNode<T>) this.myQueue.removeNext();
+		HuffmanTreeNode newNode = new HuffmanTreeNode<T>(node1.getFrequency() + node2.getFrequency());
 
 		newNode.setLeft(node1);
 		newNode.setRight(node2);
 		this.myQueue.addElement(newNode);
 	}
 	
+	@SuppressWarnings("unchecked")
 	private  <T> HuffmanTreeNode<T> buildHuffmanTree() throws Exception {
 		while (this.myQueue.size() > 1) {
 			this.buildATree();
 		}
-		return this.myQueue.removeNext();
+		return (HuffmanTreeNode<T>) this.myQueue.removeNext();
 	}
 	
 	public  HuffmanTreeNode<T> getRoot(){
 		return this.root;
 	}
 	
+	@Override
 	public String toString() {
 		System.out.println("Preorder");
 		preorderTraversal(this.root);
@@ -54,14 +53,13 @@ public class HuffmanTree<T> {
 		inorderTraversal(this.root);
 		System.out.println();
 		
-		for (char c : this.encodingMap.keySet()) {
+		for (final char c : this.encodingMap.keySet()) {
 			System.out.println(c + ": " + this.encodingMap.get(c));
 		}
-//		System.out.println(this.HuffmanCode);
 		return "";
 	}
 	
-	private void preorderTraversal(HuffmanTreeNode<T> node) {
+	private void preorderTraversal(final HuffmanTreeNode<T> node) {
 		if (node!=null) {
 			System.out.print(node.toString() + ", ");
 			preorderTraversal(node.getLeft());
@@ -70,42 +68,11 @@ public class HuffmanTree<T> {
 		}
 	}
 	
-	private void inorderTraversal(HuffmanTreeNode<T> node) {
+	private void inorderTraversal(final HuffmanTreeNode<T> node) {
 		if (node != null) {
 		inorderTraversal(node.getLeft()); 
         System.out.print(node.toString() + ", "); 
         inorderTraversal(node.getRight()); 
 		} 
-	
 	}
-	
-//	private void createEncodingMap() {
-//		createEncoding(this.root, "");
-//	}
-//	
-//	private void createEncoding(HuffmanTreeNode<T> node, String code) {
-//		if (node != null) {
-//			if (!node.isSum()){
-//				this.encodingMap.put(node.getChar(), code);
-//			}
-//			createEncoding(node.getLeft(), code + "0"); 
-//	        createEncoding(node.getRight(), code + "1"); 
-//			} 
-//	}
-//	
-//	private void createHuffmanCode(final String input) {
-//		StringBuilder code = new StringBuilder();
-//		for (int i = 0; i < input.length(); i++) {
-//			if (this.encodingMap.containsKey(input.charAt(i))) {
-//				code.append(this.encodingMap.get(input.charAt(i)));
-//			}
-//		}
-//		this.HuffmanCode = code.toString();
-//	}
-	
-
-	
-//	public String getHuffmanCode() {
-//		return this.HuffmanCode;
-//	}
 }
